@@ -1,4 +1,4 @@
-Descripción del archivo
+Descripción de esta carpeta
 --------------------
 Mas adelante es posible que trabajen en proyectos mas grandes y quizás que tengan que usar arhivos .py y no notebooks.
 
