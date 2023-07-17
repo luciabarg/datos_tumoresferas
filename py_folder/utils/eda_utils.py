@@ -19,7 +19,7 @@ class DataManipulation:
         self.data_dir = data_dir
         self.df = df
         self.logger = logger
-        self.l_extra = {'name_class': 'eda_class'}
+        self.l_extra = {'name_class': 'eda_utils'}
 
     def compare_columns_df(self, df1, df2):
         """
@@ -129,6 +129,23 @@ class DataManipulation:
         
         return df
   
+    def test_function(self, df):   
+        """ 
+        Función prueba.
+        
+        Parámetros:
+        - df: dataframe 
+        
+        Retorna:
+        - df_mod: el mismo dataframe modificado
+        """
+
+        df_mod_si = df.loc[df['Esferoide']=='si'].copy()
+        df_mod_no = df.loc[df['Esferoide']=='no'].copy()
+        
+        return df_mod_si, df_mod_no
+  
+
 
     def make_columns_eda_transformations(self):
         """
@@ -144,13 +161,18 @@ class DataManipulation:
                              "Width", "Height", "Feret", "FeretAngle", "MinFeret", "AR"]
         
         df_mod = self.drop_column_df(self.df, list_cols_to_drop)
-        self.logger.info(f'{df_mod.shape}', extra=self.l_extra)
+        self.logger.info(f'Shape final de dataframe modificado: {df_mod.shape}', extra=self.l_extra)
        
         # solo como ejemplo de función
         self.compare_columns_df(self.df, df_mod)
     
         self.logger.info(f'Final dataframe has the following columns: {set(df_mod.columns)}', extra=self.l_extra)
 
+        df_mod_si, df_mod_no = self.test_function(df_mod)
+
+        self.logger.info(f'shape of df_mod_si = {df_mod_si.shape}', extra=self.l_extra)
+        self.logger.info(f'shape of df_mod_no = {df_mod_no.shape}', extra=self.l_extra)
+        
         # Guardamos el dataframe para análisis y modelado posterior
         self.logger.info('Saving preprocesed dataframe to csv to further analysis and modeling', extra=self.l_extra)
         self.save_csv(df_mod, 'fiji_datos_mod.csv')

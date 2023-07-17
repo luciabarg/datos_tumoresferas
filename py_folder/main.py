@@ -6,6 +6,14 @@ Mas adelante es posible que trabajen en proyectos mas grandes y es posible que t
 Tal como se lo dijeron en el teórico, al tener la funcion main pueden correr desde la terminal python etl.py y 
 va a ejecutar lo definido en la funcion main.
 
+Colab:
+
+import os
+os.chdir("/content/drive/My Drive/Datos_tumoresferas/py_folder")
+
+! python main.py
+
+
 """
 # Import libraries
 import numpy as np
@@ -39,7 +47,7 @@ def main():
 
     # To retain the original information, let's create a copy of the original dataframes (in dataframe format) 
     # with the suffix "__raw" before proceeding with any changes
-    fiji_datos_raw = fiji_datos.add_suffix('_raw', axis=1).copy()
+    #fiji_datos_raw = fiji_datos.add_suffix('_raw', axis=1).copy()
     
     # This class provides useful functions for preprocess the loaded dataframes
     eda_class = eda_utils.DataManipulation(data_dir, fiji_datos, logger) 

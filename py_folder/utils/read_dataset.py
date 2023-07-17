@@ -17,7 +17,7 @@ class DatasetRead:
         """
         self.data_dir = data_dir
         self.logger = logger
-        self.l_extra = {'name_class': 'load_class'}
+        self.l_extra = {'name_class': 'read_dataset'}
 
     
     def read_csv(self, filename):
