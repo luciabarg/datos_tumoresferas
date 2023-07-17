@@ -15,3 +15,10 @@ Para generar la documentación con pdoc (https://pdoc.dev/) deben describir sus 
        (.venv) $ pip install pdoc
     2) Crear la carpeta con la documentación
        (.venv) $ pdoc main.py utils/ -o ./documentacion/Docs -t ./documentacion/pdoc_templates/
+
+Colab:
+
+    import os
+    os.chdir("/content/drive/My Drive/Datos_tumoresferas/py_folder")
+
+    ! python main.py
